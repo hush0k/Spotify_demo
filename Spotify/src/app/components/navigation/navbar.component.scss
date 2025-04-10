@@ -1,199 +1,256 @@
+//colors
+$primary-background-color: #000;
+$secondary-background-color: #1f1f1f;
+$secondary-hovered-background-color: #2a2a2a;
+$outline-color: rgba(86, 86, 86, 0.83);
+$primary-text: #b3b3b3;
+$white-text-color: #fff;
+
+
 .container{
-  box-sizing: content-box;
-  height: 48px;
-  padding: 8px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.logo-container{
-  height: 48px;
-  width: 48px;
-  padding: 8px;
-  box-sizing: border-box;
-  margin-left: 12px;
-}
-
-.logo-link{
-  height: 48px;
-  width: 48px;
-}
-
-.logo-link svg{
-  width: 32px;
-  height: 32px;
-}
-
-.search{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-
-
-.search_search-bar{
+  //position: fixed;
+  //background-color: #678385;
   display: flex;
   flex-direction: row;
   align-items: center;
   box-sizing: border-box;
-}
-svg{
-  border: none;
-}
-.search_search-bar:hover{
-  cursor: text;
-  .search-icon{
-    outline: 1px solid #737373;
-    border-right: none;
-    background-color: #262626;
-  }
-  .search-input{
-    outline: 1px solid #737373;
-    border-right: none;
-    border-left: none;
-    background-color: #262626;
-  }
-  .line{
-    outline: 1px solid #737373;
-    border-right: none;
-    border-left: none;
-    background-color: #262626;
-  }
-  .second-button{
-    outline: 1px solid #737373;
-    border-left: none;
-    background-color: #262626;
-  }
-  input{
-    background-color: #262626;
-  }
-  svg {
-    background-color: #262626;
-  }
-  button{
-    background-color: #262626;
-  }
+  height: 64px;
+  padding: 8px;
+  font-family: 'Spotify Mix', sans-serif;
 
-}
-
-
-.search_home-button{
-  height: 48px;
-  width: 48px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  margin-left: 16px;
-}
-
-.search_home-button button{
-  height: 48px;
-  width: 48px;
-  border-radius: 50%;
-  cursor: pointer;
-  border: none;
-  background-color: #1f1f1f;
-
-  img{
-    width: 24px;
-    height: 24px;
-  }
-}
-
-.search_search-bar{
-  height: 48px;
-  margin: 0 8px;
-  border: none;
-
-  .search-icon{
-    height: 48px;
-    width: 48px;
+  .logo-container{
+    height: 72px;
+    width: 72px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #1f1f1f;
-    border-radius: 50% 0 0 50%;
+
+    .logo-link{
+      height: 32px;
+      width: 32px;
+    }
   }
 
-  .search-input{
-    border: none;
-    background-color: #1f1f1f;
-    height: 48px;
-    width: 378px;
+  .search-container{
     display: flex;
+    flex-direction: row;
     align-items: center;
+    height: 48px;
+    width: 840px;
+
+    .search_home-button{
+      box-sizing: border-box;
+      height: 48px;
+      width: 48px;
+      margin-left: 8px;
+      background-color: $secondary-background-color;
+      padding: 12px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: transform 0.1s ease, background-color 0.1s ease;
+
+      button{
+        background: none;
+        height: 24px;
+        width: 24px;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        transition: transform 0.1s ease;
+      }
+    }
+    .search_home-button:hover{
+      background-color: $secondary-hovered-background-color;
+      transform: scale(1.05);
+      button{
+        transform: scale(1.04);
+      }
+    }
+    .search_search-bar{
+      box-sizing: border-box;
+      height: 48px;
+      width: 490px;
+      padding: 0 8px;
+      background-color: $primary-background-color;
+      position: relative;
+
+      &:hover input:not(:focus) {
+        background-color: $secondary-hovered-background-color;
+        box-shadow: 0 0 0 1.5px $outline-color;
+      }
+
+      .search-icon{
+        position: absolute;
+        z-index: 10;
+        top: 50%;
+        left: 20px;
+        transform: translateY(-40%);
+        cursor: pointer;
+      }
+
+      input{
+        box-sizing: border-box;
+        height: 100%;
+        width: 474px;
+        position: absolute;
+        z-index: 1;
+        background-color: $secondary-background-color;
+        border: none;
+        padding: 12px 96px 12px 48px;
+        border-radius: 500px;
+        color: $white-text-color;
+        font-size: 16px;
+        font-family: 'Spotify Mix', sans-serif;
+        transition: background-color 0.25s ease, box-shadow 0.25s ease;
+        outline: none;
+
+        &::placeholder{
+          color: $primary-text;
+          font-family: 'Spotify Mix', sans-serif;
+        }
+
+        &:focus{
+          background-color: $secondary-hovered-background-color;
+          box-shadow: 0 0 0 2.2px $white-text-color;
+        }
+      }
+
+      .second-button{
+        box-sizing: border-box;
+        z-index: 4;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-45%);
+        right: 20px;
+
+        button{
+          background: none;
+          border: none;
+          padding-left: 12px;
+          height: 22px;
+          border-left: 1px solid $primary-text;
+          cursor: pointer;
+
+          svg path{
+            transition: stroke 0.2s ease, transform 0.2s ease;
+          }
+
+
+          &:hover svg path{
+            stroke: #ffffff;
+            transform: scale(1.05);
+          }
+
+        }
+      }
+    }
+
   }
 
-  input{
-    border: none;
-    background-color: #1f1f1f;
-    height: 46px;
-    width: 378px;
+  .buttons-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    width: 580px;
+    height: 58px;
+    font-family: 'Spotify Mix', sans-serif;
+    color:$primary-text;
     font-size: 16px;
-    color: white;
-    padding-left: 5px;
-  }
-  input::placeholder {
-    color: #b3b3b3;
-  }
-  input:focus{
-    border: none;
-    outline: none;
-  }
+    font-weight: 700;
 
-  .line{
-    background-color: #1f1f1f;
-    height: 48px;
-    display: flex;
-    align-items: center;
-  }
+    button{
+      margin: 0;
+      padding: 8px 0;
+      height: 48px;
+      border: none;
+      outline: none;
+      background: none;
+      font-family: 'Spotify Mix', sans-serif;
+      color: $primary-text;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 700;
+      transition: color 0.15s ease, transform 0.15s ease;
 
-  .line span{
-    height: 26px;
-    border-left: 1px solid #797777;
-  }
+      &:hover{
+        transform: scale(1.03);
+        color: white;
+      }
+    }
 
-  .second-button{
-    height: 48px;
-    width: 48px;
-    background-color: #1f1f1f;
-    border-radius: 0 50% 50% 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-right: 5px;
-  }
-  .second-button button{
-    height: 24px;
-    width: 22px;
-    background-color: #1f1f1f;
-    border: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-    margin: 0;
-    cursor: pointer;
-  }
-  .second-button button {
-    transition: transform 0.1s ease-in-out;
-  }
+    .line{
+      height: 25px;
+      margin: 16px;
+      width: 1px;
+      background-color: white;
+      display: block;
+      flex-shrink: 0;
+    }
 
-  .second-button button:hover {
-    transform: scale(1.1);
+    .install-app{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      position: relative;
+      text-decoration: none;
+      transition: color 0.15s ease, transform 0.15s ease;
+
+      &:visited{
+        color: $primary-text;
+      }
+
+      &:hover{
+        color: white;
+        transform: scale(1.03);
+
+        .icon{
+          fill: white;
+        }
+      }
+
+      .icon{
+        fill: $primary-text;
+        box-sizing: border-box;
+        position: absolute;
+        left: 12px;
+        top: 4px;
+        transition: fill 0.15s ease;
+      }
+
+      .text{
+        padding: 4px 16px 4px 36px;
+        font-size: 14px;
+        white-space: nowrap;
+      }
+    }
+
+    .account{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      .sign-up{
+        font-size: 14px;
+        padding: 4px 16px 4px 8px;
+        white-space: nowrap;
+      }
+
+      .log-in{
+        background: #ffffff;
+        color: black;
+        padding: 8px 32px;
+        display: flex;
+        justify-content: center;
+        border-radius: 500px;
+        align-items: center;
+        white-space: nowrap;
+        border: none;
+      }
+    }
   }
-
-  .second-button button svg {
-    transition: fill 0.1s ease-in-out;
-  }
-
-  .second-button button:hover svg path {
-    stroke: white;
-  }
-
-
 }
+
 
