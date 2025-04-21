@@ -24,10 +24,10 @@ class Album(models.Model):
 
 class Track(models.Model):
     title = models.CharField(max_length=100)
+    audio = models.FileField(upload_to='audio/')
     artist = models.ForeignKey(Artist, on_delete=models.CASCADE, related_name='tracks')
     album = models.ForeignKey(Album, on_delete=models.CASCADE, related_name='tracks', null=True, blank=True)
     duration = models.PositiveIntegerField()
-    genre = models.CharField(max_length=100)
 
     def __str__(self):
         return f"{self.title}"
