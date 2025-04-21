@@ -2,8 +2,8 @@ from django.urls import path
 from .views import *
 
 urlpatterns = [
-    path('users/', user_list_create, name='user-list'),
-    path('users/<int:pk>/', user_detail, name='user-detail'),
+    path('users/', UserListCreate.as_view(), name='user-list'),
+    path('users/<int:pk>/', UserDetail.as_view(), name='user-detail'),
     path('artists/', ArtistListCreate.as_view(), name='artist-list'),
     path('artists/<int:pk>/', ArtistDetail.as_view(), name='artist-detail'),
     path('albums/', AlbumListCreate.as_view(), name='album-list'),

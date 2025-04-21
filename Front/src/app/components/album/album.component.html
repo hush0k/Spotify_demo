@@ -1,0 +1,28 @@
+<div class="album-container">
+  <div
+    class="button-mask"
+    (click)="openAlbum()"
+    (mouseenter)="hovering = true"
+    (mouseleave)="hovering = false"></div>
+  <div class="album-photo">
+    <div class="background-img">
+      <img [src]="album.image" [alt]="album.name">
+    </div>
+    <div class="button">
+      <button
+        class="real-button"
+        [class.visible]="hovering">
+      </button>
+    </div>
+  </div>
+  <div class="text">
+    <div class="name">
+      <p>{{ album.name }}</p>
+    </div>
+    <div class="artists">
+      <span *ngFor="let artist of album.artists">
+        <a href="">{{ artist.name }}</a>
+      </span>
+    </div>
+  </div>
+</div>

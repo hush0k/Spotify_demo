@@ -15,15 +15,18 @@ class Artist(models.Model):
         return self.name
 
 class Album(models.Model):
+    image = models.ImageField(upload_to='images/')
     title = models.CharField(max_length=100)
     artist = models.ForeignKey(Artist, on_delete=models.CASCADE, related_name='albums')
     year = models.PositiveIntegerField()
+    isExplicit = models.BooleanField(default=False)
 
     def __str__(self):
         return f"{self.title}({self.artist})"
 
 class Track(models.Model):
     title = models.CharField(max_length=100)
+    image = models.ImageField(upload_to='images/')
     audio = models.FileField(upload_to='audio/')
     artist = models.ForeignKey(Artist, on_delete=models.CASCADE, related_name='tracks')
     album = models.ForeignKey(Album, on_delete=models.CASCADE, related_name='tracks', null=True, blank=True)
