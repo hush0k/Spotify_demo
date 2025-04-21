@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {NgIf} from '@angular/common';
+import {NgForOf, NgIf} from '@angular/common';
 import {Album} from '../../models/album';
 import { HttpClient } from '@angular/common/http';
 
@@ -7,20 +7,18 @@ import { HttpClient } from '@angular/common/http';
   selector: 'app-album',
   standalone: true,
   imports: [
-    NgIf
+    NgIf,
+    NgForOf
   ],
   templateUrl: './album.component.html',
   styleUrl: './album.component.scss'
 })
 export class AlbumComponent {
   @Input() album!: Album;
-
-  constructor(private http: HttpClient) { }
-
   hovering = false;
-
   openAlbum(){}
-
-  playAlbum($event: MouseEvent){}
+  playAlbum($event: MouseEvent){
+    $event.stopPropagation();
+  }
 
 }

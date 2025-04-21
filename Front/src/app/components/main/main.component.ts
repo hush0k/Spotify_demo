@@ -15,7 +15,7 @@
   export class MainComponent {
     albums: Album[] = [];
 
-    constructor(private albumService: AlbumService, private http: HttpClient) {}
+    constructor(private albumService: AlbumService) {}
 
     ngOnInit() {
       this.loadAlbums();
@@ -23,8 +23,11 @@
 
     loadAlbums() {
       this.albumService.getAlbums().subscribe({
-        next: (albums) => this.albums = albums,
-        error: (error) => console.log('Error loading albums.', error)
+        next: (albums) => {
+          console.log('Received albums:', albums);
+          this.albums = albums;
+        },
+        error: (error) => console.error('Error loading albums:', error)
       });
     }
 
