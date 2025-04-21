@@ -92,7 +92,7 @@ WSGI_APPLICATION = 'spotify_back.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
+        'NAME': 'spotify',
         'USER': 'postgres',
         'PASSWORD': 'Kanysh27',
         'HOST': 'localhost',

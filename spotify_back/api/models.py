@@ -9,6 +9,7 @@ class User(AbstractUser):
         return self.username
 
 class Artist(models.Model):
+    image = models.ImageField(upload_to='artists')
     name = models.CharField(max_length=100)
 
     def __str__(self):
