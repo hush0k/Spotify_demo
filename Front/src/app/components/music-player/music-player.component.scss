@@ -1,0 +1,24 @@
+//colors
+$primary-background-color: #000;
+$secondary-background-color: #1f1f1f;
+$secondary-hovered-background-color: #2a2a2a;
+$outline-color: rgba(86, 86, 86, 0.83);
+$primary-text: #b3b3b3;
+$white-text-color: #fff;
+
+
+.container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 72px;
+
+  .track-info{
+    height: 62px;
+    width: 493px;
+    box-sizing: border-box;
+    padding-left: 8px;
+
+  }
+}
