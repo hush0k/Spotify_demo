@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from rest_framework.decorators import api_view
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework import generics
 from rest_framework import status
@@ -90,6 +91,20 @@ from .serializers import *
 #         artist.delete()
 #         return Response(status=status.HTTP_204_NO_CONTENT)
 
+class MusicProtectedView(APIView):
+    
+
+    def get(self, request):
+        return Response({"message": "Your music data here"})
+
+class AlbumTrackView(generics.ListAPIView):
+    serializer_class = TrackSerializer
+    
+    def get_queryset(self):
+        album_id = self.kwargs['pk']
+        return Track.objects.filter(album_id=album_id)
+
+
 class UserListCreate(generics.ListCreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
@@ -109,10 +124,12 @@ class ArtistDetail(generics.RetrieveUpdateDestroyAPIView):
 class AlbumListCreate(generics.ListCreateAPIView):
     queryset = Album.objects.all()
     serializer_class = AlbumSerializer
+    # 
 
 class AlbumDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Album.objects.all()
     serializer_class = AlbumSerializer
+    # 
 
 class TrackListCreate(generics.ListCreateAPIView):
     queryset = Track.objects.all()

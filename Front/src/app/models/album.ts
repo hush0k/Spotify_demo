@@ -3,8 +3,9 @@ import {Music} from './music';
 
 export interface Album {
   id: number;
-  name: string;
+  title: string;
   image: string;
-  artists: Artist[];
+  artist: Artist;
   musics: Music[];
+  isExplicit: boolean;
 }

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Music} from '../models/music';
 import {BehaviorSubject, Observable} from 'rxjs';
+import {MusicService} from './music.service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +16,15 @@ export class PlayerService {
   private shuffleMode = false;
   private repeatMode: 'none' | 'all' | 'one' = 'none';
 
-  constructor() {
+
+  constructor(private musicService: MusicService) {
     this.setupAudioListeners();
+  }
+
+  loadTrack(trackId: number): void {
+    this.musicService.getTrack(trackId).subscribe(track => {
+      this.currentTrackSubject.next(track);
+    });
   }
 
   private setupAudioListeners() {

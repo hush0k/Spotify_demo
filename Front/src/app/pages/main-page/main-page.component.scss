@@ -1,0 +1,30 @@
+////colors
+//$primary-background-color: #000;
+//$secondary-background-color: #1f1f1f;
+//$third-background-color: #121212;
+//$secondary-hovered-background-color: #2a2a2a;
+//$outline-color: rgba(86, 86, 86, 0.83);
+//$primary-text: #b3b3b3;
+//$white-text-color: #fff;
+
+
+.container{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+
+
+
+  .center{
+    display: grid;
+    grid-template-columns: 420px 1fr;
+    padding: 0 8px;
+    gap: 8px;
+
+    main{
+      background-color: #121212;
+      border-radius: 8px;
+      overflow-y: auto;
+    }
+  }
+}

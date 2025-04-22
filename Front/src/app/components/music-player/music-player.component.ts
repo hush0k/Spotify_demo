@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {Music} from '../../models/music';
 import {PlayerService} from '../../services/player.service';
 import {NgForOf, NgIf} from '@angular/common';
+import {MusicService} from '../../services/music.service';
 
 @Component({
   selector: 'app-music-player',
@@ -20,13 +21,21 @@ export class MusicPlayerComponent {
   shuffleMode = false;
   seekValue = 0;
 
+
+
   get duration(): number {
     return this.currentTrack?.duration || 0;
   }
 
-  constructor(private playerService: PlayerService) {}
+  constructor(private playerService: PlayerService, private musicService: MusicService) {}
 
   ngOnInit() {
+    this.musicService.getTracks().subscribe(tracks => {
+      if (tracks.length > 0) {
+        this.playerService.loadTrack(tracks[0].id);
+      }
+    });
+
     this.playerService.isPlaying$.subscribe(playing => {
       this.isPlaying = playing;
     });

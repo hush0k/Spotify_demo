@@ -1,0 +1,26 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  padding: 0 24px;
+
+  .trending-songs a{
+    height: 48px;
+    display: flex;
+    align-items: flex-end;
+    font-size: 24px;
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    margin: 4px 0;
+
+    &:hover{
+      text-decoration: underline;
+    }
+  }
+
+  .sections{
+    display: flex;
+    flex-direction: row;
+    margin-left: -8px;
+  }
+}
