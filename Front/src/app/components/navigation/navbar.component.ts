@@ -1,15 +1,31 @@
-import { Component } from '@angular/core';
-import {NgOptimizedImage} from '@angular/common';
+import {Component, inject, Input} from '@angular/core';
+import {NgOptimizedImage, CommonModule} from '@angular/common';
+import {AuthService} from '../../services/auth.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-navigation',
   imports: [
-    NgOptimizedImage
+    NgOptimizedImage, CommonModule
   ],
   templateUrl: './navbar.component.html',
+  standalone: true,
   styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent {
+  router = inject(Router);
+  constructor(protected auth: AuthService) {}
 
+  onLogout() {
+    this.auth.logout();
+    window.location.reload();
+  }
 
+  login(){
+    this.router.navigate(['/login']);
+  }
+
+  singUp() {
+    this.router.navigate(['/register']);
+  }
 }

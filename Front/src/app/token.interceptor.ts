@@ -8,7 +8,7 @@ export const tokenInterceptor: HttpInterceptorFn = (req, next) => {
   const token = auth.getToken();
 
   const isAuthRequest =
-    req.url.includes('/login') || req.url.includes('/register') || req.url.includes('/users');
+    req.url.includes('/login') || req.url.includes('/register') ;
 
   if (isAuthRequest) return next(req);
 

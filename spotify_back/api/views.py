@@ -99,7 +99,7 @@ class MusicProtectedView(APIView):
 
 class AlbumTracksView(generics.ListAPIView):
     serializer_class = TrackSerializer
-
+    permission_classes = [IsAuthenticated]
     def get_queryset(self):
         album_id = self.kwargs['pk']
         return Track.objects.filter(album_id=album_id)
@@ -133,7 +133,7 @@ class ArtistDetail(generics.RetrieveUpdateDestroyAPIView):
 class AlbumListCreate(generics.ListCreateAPIView):
     queryset = Album.objects.all()
     serializer_class = AlbumSerializer
-    # 
+    # permission_classes = [IsAuthenticated]
 
 class AlbumDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Album.objects.all()

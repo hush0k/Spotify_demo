@@ -17,6 +17,7 @@ import {MusicPlayerComponent} from '../../components/music-player/music-player.c
     MusicPlayerComponent
   ],
   templateUrl: './main-page.component.html',
+  standalone: true,
   styleUrl: './main-page.component.scss'
 })
 export class MainPageComponent {

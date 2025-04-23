@@ -35,9 +35,13 @@
       </span>
       <span class="text">Install App</span>
     </a>
-    <div class="account">
-      <button class="sign-up">Sign up</button>
-      <button class="log-in">Log in</button>
+    <div class="account" *ngIf="!(auth.isLoggedIn())">
+      <button class="sign-up" (click)="singUp()">Sign up</button>
+      <button class="log-in" (click)="login()">Log in</button>
+    </div>
+    <div class="account" *ngIf="auth.isLoggedIn()">
+      <button class="sign-up" (click)="onLogout()">Log out</button>
+      <img class="profile-img" src="https://cdn0.iconfinder.com/data/icons/seo-web-4-1/128/Vigor_User-Avatar-Profile-Photo-02-128.png" alt="Profile photo">
     </div>
   </div>
 </div>

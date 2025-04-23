@@ -7,15 +7,17 @@ import {MusicService} from './music.service';
   providedIn: 'root'
 })
 export class PlayerService {
-  @ViewChild('audioPlayer', { static: true }) audioPlayerRef!: ElementRef<HTMLAudioElement>;
   private audio = new Audio();
   private currentTrackIndex = 0;
   private playlist: Music[] = [];
   private currentTrackSubject = new BehaviorSubject<Music | null>(null);
   private isPlayingSubject = new BehaviorSubject<boolean>(false);
   private currentTimeSubject = new BehaviorSubject<number>(0);
+  private durationSubject = new BehaviorSubject<number>(0);
   private shuffleMode = false;
   private repeatMode: 'none' | 'all' | 'one' = 'none';
+  currentTime$ = this.currentTimeSubject.asObservable();
+  duration$ = this.durationSubject.asObservable();
 
 
   constructor(private musicService: MusicService) {
@@ -33,8 +35,17 @@ export class PlayerService {
       this.currentTimeSubject.next(this.audio.currentTime);
     });
 
+    this.audio.addEventListener('loadedmetadata', () => {
+      this.durationSubject.next(this.audio.duration);
+    });
+
     this.audio.addEventListener('ended', () => {
       this.handleTrackEnd();
+    });
+
+    this.audio.addEventListener('error', (error) => {
+      console.error('Audio error:', error);
+      this.isPlayingSubject.next(false);
     });
   }
 
@@ -48,21 +59,26 @@ export class PlayerService {
 
   //Play track by ID
   playTrack(index: number) {
-    console.log("playtrack");
     if (index < 0 || index >= this.playlist.length) {
-      console.log("playtrack RETURN");
       return;
     }
 
-    console.log("playtrack NO RETURN");
     this.currentTrackIndex = index;
     const track = this.playlist[index];
+
+    // Reset audio element
+    this.audio.pause();
+    this.audio.currentTime = 0;
     this.audio.src = track.audio;
-    console.log(track);
+
     this.audio.load();
-    this.audio.play();
-    this.currentTrackSubject.next(track);
-    this.isPlayingSubject.next(true);
+    this.audio.play().then(() => {
+      this.currentTrackSubject.next(track);
+      this.isPlayingSubject.next(true);
+    }).catch(error => {
+      console.error('Playback failed:', error);
+      this.isPlayingSubject.next(false);
+    });
   }
 
   //Pause/Play
@@ -134,7 +150,11 @@ export class PlayerService {
 
   //Setting of time playing
   seekTo(time: number) {
-    this.audio.currentTime = time;
+    if (!isNaN(time) && isFinite(time)) {
+      // Устанавливаем новое время и принудительно обновляем текущее время
+      this.audio.currentTime = time;
+      this.currentTimeSubject.next(time); // Немедленное обновление
+    }
   }
 
   //Repeat MODE
@@ -153,9 +173,6 @@ export class PlayerService {
 
   get isPlaying$(): Observable<boolean> {
     return this.isPlayingSubject.asObservable();
-  }
-  get currentTime$(): Observable<number> {
-    return this.currentTimeSubject.asObservable();
   }
   get currentDuration(): number {
     return this.currentTrackSubject.value?.duration || 0;

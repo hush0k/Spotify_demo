@@ -8,7 +8,7 @@ import {RegistrationComponent} from './components/registration/registration.comp
 export const routes: Routes = [
   // { path: 'login', redirectTo: 'home', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  { path: 'home', component: MainPageComponent, canActivate: [authGuard] },
+  { path: 'home', component: MainPageComponent},
   { path: 'player', component: MusicPlayerComponent},
   { path: 'register', component: RegistrationComponent }
 ];

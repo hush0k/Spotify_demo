@@ -163,11 +163,11 @@ export type Schema = {
      * The full path for the server entry point to the application, relative to the current
      * workspace.
      */
-    server?: string;
+    server?: Serv;
     /**
      * Generates a service worker configuration.
      */
-    serviceWorker?: ServiceWorker;
+    serviceWorker?: Serv;
     /**
      * Output source maps for scripts and styles. For more information, see
      * https://angular.dev/reference/configs/workspace-config#source-map-configuration.
@@ -496,9 +496,12 @@ export type AutoCspClass = {
     unsafeEval?: boolean;
 };
 /**
+ * The full path for the server entry point to the application, relative to the current
+ * workspace.
+ *
  * Generates a service worker configuration.
  */
-export type ServiceWorker = boolean | string;
+export type Serv = boolean | string;
 /**
  * Output source maps for scripts and styles. For more information, see
  * https://angular.dev/reference/configs/workspace-config#source-map-configuration.

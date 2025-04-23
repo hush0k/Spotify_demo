@@ -4,6 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-library',
   imports: [],
   templateUrl: './library.component.html',
+  standalone: true,
   styleUrl: './library.component.scss'
 })
 export class LibraryComponent {

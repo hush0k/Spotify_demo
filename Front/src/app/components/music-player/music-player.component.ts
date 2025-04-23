@@ -12,6 +12,7 @@ import {ArtistService} from '../../services/artist.service';
     NgForOf
   ],
   templateUrl: './music-player.component.html',
+  standalone: true,
   styleUrl: './music-player.component.scss'
 })
 export class MusicPlayerComponent {
@@ -20,13 +21,12 @@ export class MusicPlayerComponent {
   currentTrack: Music | null = null;
   repeatMode: 'none' | 'all' | 'one' = 'none';
   shuffleMode = false;
-  seekValue = 0;
+  duration = 0;
+  isSeeking = false;
 
 
 
-  get duration(): number {
-    return this.currentTrack?.duration || 0;
-  }
+
 
   constructor(private playerService: PlayerService, private musicService: MusicService, private artistService: ArtistService) {}
 
@@ -58,6 +58,16 @@ export class MusicPlayerComponent {
 
     this.repeatMode = this.playerService.currentRepeatMode as 'none' | 'all' | 'one';
     this.shuffleMode = this.playerService.currentShuffleMode;
+
+    this.playerService.duration$.subscribe(duration => {
+      this.duration = duration;
+    });
+  }
+
+
+  getProgressPercent(): string {
+    const percent = (this.currentTime / this.duration) * 100;
+    return `${percent}%`;
   }
 
   togglePlay(): void {
@@ -72,14 +82,28 @@ export class MusicPlayerComponent {
     this.playerService.prevTrack();
   }
 
-  onSeekChange(event: any): void {
-    const newTime = parseFloat(event.target.value);
+  onSeekChange(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    const value = (event.target as HTMLInputElement).value;
+    const newTime = parseFloat(input.value);
+    const percent = (parseFloat(input.value) / parseFloat(input.max)) * 100;
+    this.currentTime = newTime;
     this.playerService.seekTo(newTime);
+    input.style.setProperty('--progress', `${percent}%`);
   }
+  onSeekStart() {
+    this.isSeeking = true;
+  }
+
+  onSeekEnd() {
+    this.isSeeking = false;
+  }
+
 
   toggleRepeat(): void {
     this.playerService.toggleRepeatMode();
     this.repeatMode = this.playerService.currentRepeatMode as 'none' | 'all' | 'one';
+    console.log(this.repeatMode);
   }
 
   toggleShuffle(): void {

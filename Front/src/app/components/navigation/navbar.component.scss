@@ -2,10 +2,12 @@
 $primary-background-color: #000;
 $secondary-background-color: #1f1f1f;
 $secondary-hovered-background-color: #2a2a2a;
-$outline-color: rgba(86, 86, 86, 0.83);
+$third-background-color: #121212;
+$button-green-color: #1ed760;
+$button-green-color-hovered: #3be477;
+$outline-color: rgba(126, 126, 126, 0.83);
 $primary-text: #b3b3b3;
 $white-text-color: #fff;
-
 
 .container{
   //position: fixed;
@@ -249,6 +251,11 @@ $white-text-color: #fff;
         align-items: center;
         white-space: nowrap;
         border: none;
+      }
+
+      .profile-img{
+        height: 40px;
+        width: 40px;
       }
     }
   }

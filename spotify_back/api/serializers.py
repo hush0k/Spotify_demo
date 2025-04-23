@@ -65,17 +65,43 @@ class ArtistSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class AlbumSerializer(serializers.ModelSerializer):
-    artist = ArtistSerializer()
+    artist = ArtistSerializer(read_only=True)  # для отображения
+    artist_id = serializers.PrimaryKeyRelatedField(
+        queryset=Artist.objects.all(), write_only=True, source='artist'  # для создания/обновления
+    )
+
     class Meta:
         model = Album
         fields = '__all__'
 
+# class AlbumSerializer(serializers.ModelSerializer):
+#     artist = ArtistSerializer()
+#     class Meta:
+#         model = Album
+#         fields = '__all__'
+
+
 class TrackSerializer(serializers.ModelSerializer):
-    artist = ArtistSerializer()
-    album = AlbumSerializer()
+    artist = ArtistSerializer(read_only=True)
+    album = AlbumSerializer(read_only=True)
+
+    artist_id = serializers.PrimaryKeyRelatedField(
+        queryset=Artist.objects.all(), write_only=True, source='artist'
+    )
+    album_id = serializers.PrimaryKeyRelatedField(
+        queryset=Album.objects.all(), write_only=True, source='album'
+    )
+
     class Meta:
         model = Track
         fields = "__all__"
+
+# class TrackSerializer(serializers.ModelSerializer):
+#     artist = ArtistSerializer()
+#     album = AlbumSerializer()
+#     class Meta:
+#         model = Track
+#         fields = "__all__"
 
 class PlaylistSerializer(serializers.ModelSerializer):
     class Meta:

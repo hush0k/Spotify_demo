@@ -1,0 +1,132 @@
+//colors
+$primary-background-color: #000;
+$secondary-background-color: #1f1f1f;
+$secondary-hovered-background-color: #2a2a2a;
+$third-background-color: #121212;
+$button-green-color: #1ed760;
+$button-green-color-hovered: #3be477;
+$outline-color: rgba(126, 126, 126, 0.83);
+$primary-text: #b3b3b3;
+$white-text-color: #fff;
+
+
+.container{
+  color: white;
+  background-color: $third-background-color;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 100px;
+
+  .content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 388px;
+    padding: 0 32px;
+    box-sizing: border-box;
+
+    .text{
+      margin-bottom: 40px;
+      h1{
+        font-weight: 700;
+        text-align: center;
+        text-wrap: balance;
+        font-size: 48px;
+        margin: 0;
+      }
+    }
+
+    form{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+
+      .input-content{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        span{
+          margin-bottom: 8px;
+          font-size: 14px;
+          font-weight: 700;
+        }
+
+        input{
+          margin-bottom: 8px;
+          height: 48px;
+          border: 1px solid $outline-color;
+          border-radius: 4px;
+          padding: 12px;
+          background: none;
+          box-sizing: border-box;
+
+          &::placeholder{
+            font-size: 16px;
+            font-weight: 400;
+            color: $primary-text;
+          }
+
+          &:hover{
+            border-color: white;
+          }
+        }
+
+
+      }
+
+      button{
+        margin-top: 12px;
+        box-sizing: border-box;
+        height: 48px;
+        border: none;
+        border-radius: 500px;
+        background-color: $button-green-color;
+        width: 100%;
+        font-size: 16px;
+        font-weight: 700;
+        transition: background-color 0.2s ease, transform 0.2s ease;
+
+        &:hover{
+          background-color: $button-green-color-hovered;
+          transform: scale(1.03);
+        }
+      }
+
+
+    }
+
+    hr{
+      width: 100%;
+      margin: 32px 0;
+      border: none;
+      background-color: $secondary-hovered-background-color;
+      height: 1px;
+    }
+
+    .login{
+      font-weight: 400;
+      display: flex;
+      flex-direction: row;
+      gap: 8px;
+
+      a{
+        font-weight: 400;
+        color: #fff;
+        text-decoration: none;
+
+        &:hover{
+          color: $button-green-color;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

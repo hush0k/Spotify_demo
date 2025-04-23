@@ -323,6 +323,7 @@ async function initializeApplication(options, context, karmaOptions, transforms 
         entryPoints,
         tsConfig: options.tsConfig,
         outputPath,
+        preserveSymlinks: options.preserveSymlinks,
         aot: options.aot,
         index: false,
         outputHashing: schema_1.OutputHashing.None,
