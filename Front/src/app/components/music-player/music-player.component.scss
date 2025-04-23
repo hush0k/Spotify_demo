@@ -1,0 +1,55 @@
+//colors
+$primary-background-color: #000;
+$secondary-background-color: #1f1f1f;
+$secondary-hovered-background-color: #2a2a2a;
+$outline-color: rgba(86, 86, 86, 0.83);
+$primary-text: #b3b3b3;
+$white-text-color: #fff;
+
+
+.container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 72px;
+  color: white;
+
+  .track-info{
+    height: 62px;
+    width: 493px;
+    box-sizing: border-box;
+    padding-left: 8px;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    img{
+      width: 56px;
+      height: 56px;
+      margin-right: 8px;
+    }
+
+    .track-artist{
+      color: #b3b3b3;
+      font-size: 12px;
+      font-weight: 500;
+      }
+
+    .track-details{
+      color: white;
+      display: flex;
+      flex-direction: column;
+
+      //align-items: center;
+    }
+
+    .track-name{
+      color: white;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+  }
+}

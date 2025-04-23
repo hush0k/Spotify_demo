@@ -1,0 +1,221 @@
+//colors
+$primary-background-color: #121212;
+$secondary-background-color: #1f1f1f;
+$secondary-hovered-background-color: #2a2a2a;
+$outline-color: rgba(86, 86, 86, 0.83);
+$primary-text: #919191;
+$white-text-color: #fff;
+
+.container{
+  background-color: $primary-background-color;
+  width: 420px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 8px;
+
+  .top-part{
+    height: 600px;
+
+    header{
+      height: 55px;
+      width: 100%;
+      padding: 12px 16px 8px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      .library-part{
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+
+        .text{
+          color: white;
+          font-weight: 700;
+          margin-right: 251px;
+          white-space: nowrap;
+          display: flex;
+          align-items: center;
+
+          span{
+            margin-left: 4px;
+          }
+        }
+
+        .button {
+          width: 35px;
+          height: 35px;
+
+          button {
+            width: 35px;
+            height: 35px;
+            border: none;
+            background: none;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.15s ease;
+
+            svg{
+              fill: $primary-text;
+              transition: fill 0.15s ease;
+            }
+
+            &:hover{
+              background-color: $secondary-hovered-background-color;
+
+              svg{
+                fill: white;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .empty-place{
+      width: 388px;
+      margin: 24px 16px;
+    }
+
+    .body-part{
+      padding: 0 8px 8px 8px;
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+      justify-content: center;
+
+      section{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 20px;
+        margin: 8px 0;
+        padding: 16px 20px;
+        box-sizing: content-box;
+        border-radius: 8px;
+        height: 102px;
+        background: $secondary-background-color;
+
+        .text{
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+          font-weight: 700;
+          color: white;
+          font-size: 16px;
+
+          .h3{
+            font-size: 14px;
+            font-weight: 400;
+          }
+        }
+
+        .button{
+          border: none;
+
+          button{
+            border: none;
+            background-color: white;
+            outline: none;
+            font-size: 14px;
+            font-weight: 700;
+            padding: 8px 16px;
+            border-radius: 500px;
+            transition: transform 0.2s ease;
+            cursor: pointer;
+
+            &:hover{
+              transform: scale(1.03);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .bottom-part{
+    height: 206px;
+    display: flex;
+    flex-direction: column;
+
+    .links-container{
+      margin: 32px 0;
+      padding: 0 24px;
+
+      .links{
+        height: 56px;
+        display: flex;
+        flex-wrap: wrap;
+
+        a{
+          text-decoration: none;
+          font-weight: 400;
+          font-size: 11px;
+          margin-right: 16px;
+
+          &:visited{
+            color: $primary-text;
+          }
+        }
+      }
+
+      a{
+        text-decoration: none;
+        font-weight: 400;
+        font-size: 12px;
+        color: white;
+
+        &:visited{
+          color: white;
+        }
+
+        &:hover{
+          text-decoration: underline;
+          text-decoration-thickness: 1px;
+          text-underline-offset: 2px ;
+        }
+      }
+    }
+
+    .button-container{
+      padding: 0 24px;
+      margin-bottom: 32px;
+
+      button{
+        position: relative;
+        padding: 8px 16px 8px 36px;
+        background-color: transparent;
+        box-shadow: 0 0 0 1px $primary-text;
+        border-radius: 500px;
+        color: white;
+        border: none;
+        font-weight: 700;
+        transition: transform 0.15s ease, color 0.5s ease;
+
+
+
+        svg{
+          fill: #fff;
+          position: absolute;
+          left: 12px;
+          top: 7px;
+
+        }
+
+        &:hover{
+          transform: scale(1.03);
+          box-shadow: 0 0 0 1px white;
+        }
+      }
+    }
+  }
+
+
+}

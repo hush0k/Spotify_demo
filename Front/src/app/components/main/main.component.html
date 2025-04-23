@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="trending-songs">
+    <a href="">Trending songs</a>
+  </div>
+  <div class="sections">
+    <app-album
+      *ngFor="let album of albums.slice(0, 7)"
+      [album] = 'album'>
+    </app-album>
+  </div>
+
+  <div class="trending-songs">
+    <a href="">Popular albums</a>
+  </div>
+  <div class="sections">
+    <app-album
+      *ngFor="let album of albums.slice(7, 14)"
+      [album] = 'album'>
+    </app-album>
+  </div>
+</div>

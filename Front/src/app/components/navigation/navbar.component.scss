@@ -1,0 +1,257 @@
+//colors
+$primary-background-color: #000;
+$secondary-background-color: #1f1f1f;
+$secondary-hovered-background-color: #2a2a2a;
+$outline-color: rgba(86, 86, 86, 0.83);
+$primary-text: #b3b3b3;
+$white-text-color: #fff;
+
+
+.container{
+  //position: fixed;
+  //background-color: #678385;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  height: 64px;
+  padding: 8px;
+  font-family: 'Spotify Mix', sans-serif;
+
+  .logo-container{
+    height: 72px;
+    width: 72px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .logo-link{
+      height: 32px;
+      width: 32px;
+    }
+  }
+
+  .search-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 48px;
+    width: 840px;
+
+    .search_home-button{
+      box-sizing: border-box;
+      height: 48px;
+      width: 48px;
+      margin-left: 8px;
+      background-color: $secondary-background-color;
+      padding: 12px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: transform 0.1s ease, background-color 0.1s ease;
+
+      button{
+        background: none;
+        height: 24px;
+        width: 24px;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        transition: transform 0.1s ease;
+      }
+    }
+    .search_home-button:hover{
+      background-color: $secondary-hovered-background-color;
+      transform: scale(1.05);
+      button{
+        transform: scale(1.04);
+      }
+    }
+    .search_search-bar{
+      box-sizing: border-box;
+      height: 48px;
+      width: 490px;
+      padding: 0 8px;
+      background-color: $primary-background-color;
+      position: relative;
+
+      &:hover input:not(:focus) {
+        background-color: $secondary-hovered-background-color;
+        box-shadow: 0 0 0 1.5px $outline-color;
+      }
+
+      .search-icon{
+        position: absolute;
+        z-index: 10;
+        top: 50%;
+        left: 20px;
+        transform: translateY(-40%);
+        cursor: pointer;
+      }
+
+      input{
+        box-sizing: border-box;
+        height: 100%;
+        width: 474px;
+        position: absolute;
+        z-index: 1;
+        background-color: $secondary-background-color;
+        border: none;
+        padding: 12px 96px 12px 48px;
+        border-radius: 500px;
+        color: $white-text-color;
+        font-size: 16px;
+        font-family: 'Spotify Mix', sans-serif;
+        transition: background-color 0.25s ease, box-shadow 0.25s ease;
+        outline: none;
+
+        &::placeholder{
+          color: $primary-text;
+          font-family: 'Spotify Mix', sans-serif;
+        }
+
+        &:focus{
+          background-color: $secondary-hovered-background-color;
+          box-shadow: 0 0 0 2.2px $white-text-color;
+        }
+      }
+
+      .second-button{
+        box-sizing: border-box;
+        z-index: 4;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-45%);
+        right: 20px;
+
+        button{
+          background: none;
+          border: none;
+          padding-left: 12px;
+          height: 22px;
+          border-left: 1px solid $primary-text;
+          cursor: pointer;
+
+          svg path{
+            transition: stroke 0.2s ease, transform 0.2s ease;
+          }
+
+
+          &:hover svg path{
+            stroke: #ffffff;
+            transform: scale(1.05);
+          }
+
+        }
+      }
+    }
+
+  }
+
+  .buttons-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    width: 592px;
+    height: 58px;
+    font-family: 'Spotify Mix', sans-serif;
+    color:$primary-text;
+    font-size: 16px;
+    font-weight: 700;
+
+    button{
+      margin: 0;
+      padding: 8px 0;
+      height: 48px;
+      border: none;
+      outline: none;
+      background: none;
+      font-family: 'Spotify Mix', sans-serif;
+      color: $primary-text;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 700;
+      transition: color 0.15s ease, transform 0.15s ease;
+
+      &:hover{
+        transform: scale(1.03);
+        color: white;
+      }
+    }
+
+    .line{
+      height: 25px;
+      margin: 16px;
+      width: 1px;
+      background-color: white;
+      display: block;
+      flex-shrink: 0;
+    }
+
+    .install-app{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      position: relative;
+      text-decoration: none;
+      transition: color 0.15s ease, transform 0.15s ease;
+
+      &:visited{
+        color: $primary-text;
+      }
+
+      &:hover{
+        color: white;
+        transform: scale(1.03);
+
+        .icon{
+          fill: white;
+        }
+      }
+
+      .icon{
+        fill: $primary-text;
+        box-sizing: border-box;
+        position: absolute;
+        left: 12px;
+        top: 4px;
+        transition: fill 0.15s ease;
+      }
+
+      .text{
+        padding: 4px 16px 4px 36px;
+        font-size: 14px;
+        white-space: nowrap;
+      }
+    }
+
+    .account{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      .sign-up{
+        font-size: 14px;
+        padding: 4px 16px 4px 8px;
+        white-space: nowrap;
+      }
+
+      .log-in{
+        background: #ffffff;
+        color: black;
+        padding: 8px 32px;
+        display: flex;
+        justify-content: center;
+        border-radius: 500px;
+        align-items: center;
+        white-space: nowrap;
+        border: none;
+      }
+    }
+  }
+}
+
+
