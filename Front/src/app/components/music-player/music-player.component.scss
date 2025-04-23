@@ -20,6 +20,36 @@ $white-text-color: #fff;
     width: 493px;
     box-sizing: border-box;
     padding-left: 8px;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    img{
+      width: 56px;
+      height: 56px;
+      margin-right: 8px;
+    }
+
+    .track-artist{
+      color: #b3b3b3;
+      font-size: 12px;
+      font-weight: 500;
+      }
+
+    .track-details{
+      color: white;
+      display: flex;
+      flex-direction: column;
+
+      //align-items: center;
+    }
+
+    .track-name{
+      color: white;
+      font-size: 14px;
+      font-weight: 500;
+    }
 
   }
 }

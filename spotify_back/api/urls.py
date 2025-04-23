@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import path
 from .views import *
@@ -12,7 +13,8 @@ urlpatterns = [
     path('tracks/', TrackListCreate.as_view(), name='track-list'),
     path('tracks/<int:pk>/', TrackDetail.as_view(), name='track-detail'),
 
-    path('albums/<int:pk>/tracks/', AlbumTrackView.as_view(), name='album-tracks'),
+    path('albums/<int:pk>/tracks/', AlbumTracksView.as_view(), name='album-tracks'),
+    path('albums/<int:album_pk>/tracks/<int:track_pk>/', AlbumTrackDetail.as_view(), name='album-track'),
 
     path('playlists/', PlaylistListCreate.as_view(), name='playlist-list'),
     path('playlists/<int:pk>/', PlaylistDetail.as_view(), name='playlist-detail'),
@@ -20,5 +22,5 @@ urlpatterns = [
     path('listening-history/<int:pk>/', ListeningHistoryDetail.as_view(), name='listening-history-detail'),
 ]
 
-# if settings.DEBUG:
-#     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

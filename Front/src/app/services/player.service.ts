@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {ElementRef, Injectable, OnInit, ViewChild} from '@angular/core';
 import { Music} from '../models/music';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {MusicService} from './music.service';
@@ -7,6 +7,7 @@ import {MusicService} from './music.service';
   providedIn: 'root'
 })
 export class PlayerService {
+  @ViewChild('audioPlayer', { static: true }) audioPlayerRef!: ElementRef<HTMLAudioElement>;
   private audio = new Audio();
   private currentTrackIndex = 0;
   private playlist: Music[] = [];
@@ -39,6 +40,7 @@ export class PlayerService {
 
   //Load Playlist
   loadPlaylist(playlist: Music[], startIdex: number = 0) {
+    console.log("playlist");
     this.playlist = playlist;
     this.currentTrackIndex = startIdex;
     this.playTrack(this.currentTrackIndex);
@@ -46,11 +48,17 @@ export class PlayerService {
 
   //Play track by ID
   playTrack(index: number) {
-    if (index < 0 || index >= this.playlist.length) return;
+    console.log("playtrack");
+    if (index < 0 || index >= this.playlist.length) {
+      console.log("playtrack RETURN");
+      return;
+    }
 
+    console.log("playtrack NO RETURN");
     this.currentTrackIndex = index;
     const track = this.playlist[index];
     this.audio.src = track.audio;
+    console.log(track);
     this.audio.load();
     this.audio.play();
     this.currentTrackSubject.next(track);

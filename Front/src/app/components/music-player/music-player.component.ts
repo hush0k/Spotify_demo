@@ -3,6 +3,7 @@ import {Music} from '../../models/music';
 import {PlayerService} from '../../services/player.service';
 import {NgForOf, NgIf} from '@angular/common';
 import {MusicService} from '../../services/music.service';
+import {ArtistService} from '../../services/artist.service';
 
 @Component({
   selector: 'app-music-player',
@@ -27,7 +28,7 @@ export class MusicPlayerComponent {
     return this.currentTrack?.duration || 0;
   }
 
-  constructor(private playerService: PlayerService, private musicService: MusicService) {}
+  constructor(private playerService: PlayerService, private musicService: MusicService, private artistService: ArtistService) {}
 
   ngOnInit() {
     this.musicService.getTracks().subscribe(tracks => {
@@ -35,6 +36,13 @@ export class MusicPlayerComponent {
         this.playerService.loadTrack(tracks[0].id);
       }
     });
+
+    if (typeof this.currentTrack?.artist === 'number') {
+      const artistId = this.currentTrack.artist;
+      this.artistService.getArtistById(artistId).subscribe(artist => {
+        this.currentTrack!.artist = artist;
+      });
+    }
 
     this.playerService.isPlaying$.subscribe(playing => {
       this.isPlaying = playing;

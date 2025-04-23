@@ -1,0 +1,9 @@
+<form>
+  <span>Username</span>
+  <input [(ngModel)]="username" name="username" placeholder="Username" required />
+  <span>Email</span>
+  <input [(ngModel)]="email" name="email" placeholder="Email" required />
+  <span>Password</span>
+  <input [(ngModel)]="password" name="password" type="password" placeholder="Password" required />
+  <button type="submit" (click)="onRegister()">Continue</button>
+</form>

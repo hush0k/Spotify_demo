@@ -20,6 +20,10 @@ export class MusicService {
     return this.http.get<Music>(`${this.apiUrl}${id}/`);
   }
 
+  getAlbumTrack(albumId: number, musicId: number): Observable<Music> {
+    return this.http.get<Music>(`${this.apiUrl}albums/${albumId}/tracks/${musicId}/`);
+  }
+
   getAlbumTracks(albumId: number): Observable<Music[]> {
     return this.http.get<Music[]>(`${this.apiUrl}albums/${albumId}/tracks/`);
   }

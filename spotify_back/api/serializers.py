@@ -65,11 +65,14 @@ class ArtistSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class AlbumSerializer(serializers.ModelSerializer):
+    artist = ArtistSerializer()
     class Meta:
         model = Album
         fields = '__all__'
 
 class TrackSerializer(serializers.ModelSerializer):
+    artist = ArtistSerializer()
+    album = AlbumSerializer()
     class Meta:
         model = Track
         fields = "__all__"

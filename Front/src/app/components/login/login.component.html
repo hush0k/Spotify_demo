@@ -12,28 +12,31 @@
         <span>
           <img src="https://accounts.scdn.co/sso/images/new-google-icon.72fd940a229bc94cf9484a3320b3dccb.svg" alt="">
         </span>
-        <span>Log in with Google</span>
+        <div class="button-text"><span>Log in with Google</span></div>
       </button>
       <button>
         <span>
           <img src="https://accounts.scdn.co/sso/images/new-facebook-icon.eae8e1b6256f7ccf01cf81913254e70b.svg" alt="">
         </span>
-        <span>Log in with Facebook</span>
+        <div class="button-text"><span>Log in with Facebook</span></div>
       </button>
       <button>
         <span>
           <img src="https://accounts.scdn.co/sso/images/new-apple-icon.e356139ea90852da2e60f1ff738f3cbb.svg" alt="">
         </span>
-        <span>Log in with Apple</span>
+        <div class="button-text"><span>Log in with Google</span></div>
       </button>
     </div>
-    <div class="form">
-      <form>
-        <input [(ngModel)]="username" name="username" placeholder="username" required />
-        <input [(ngModel)]="password" name="password" type="password" placeholder="password" required />
-        <button type="submit" (click)="onLogin()">Login</button>
-        <p *ngIf="errorMessage">{{errorMessage}}</p>
-      </form>
+    <hr>
+    <form>
+      <span>Email or username</span>
+      <input [(ngModel)]="username" name="username" placeholder="Email or username" required />
+      <span>Password</span>
+      <input [(ngModel)]="password" name="password" type="password" placeholder="Password" required />
+      <button type="submit" (click)="onLogin()">Continue</button>
+    </form>
+    <div class="register">
+      <p><span class="first">Don't have account?</span><span class="second"><a href="">Tap to Register</a></span></p>
     </div>
   </div>
 </div>

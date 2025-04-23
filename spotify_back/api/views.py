@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from rest_framework.decorators import api_view
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
 from rest_framework import generics
 from rest_framework import status
@@ -97,17 +97,26 @@ class MusicProtectedView(APIView):
     def get(self, request):
         return Response({"message": "Your music data here"})
 
-class AlbumTrackView(generics.ListAPIView):
+class AlbumTracksView(generics.ListAPIView):
     serializer_class = TrackSerializer
-    
+
     def get_queryset(self):
         album_id = self.kwargs['pk']
         return Track.objects.filter(album_id=album_id)
+
+class AlbumTrackDetail(generics.RetrieveAPIView):
+    serializer_class = TrackSerializer
+
+    def get_object(self):
+        album_id = self.kwargs['album_pk']
+        track_id = self.kwargs['track_pk']
+        return get_object_or_404(Track, id=track_id, album_id=album_id)
 
 
 class UserListCreate(generics.ListCreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+    permission_classes = [AllowAny]
 
 class UserDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = User.objects.all()

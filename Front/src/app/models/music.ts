@@ -3,10 +3,10 @@ import {Album} from './album';
 
 export interface Music {
   id: number;
-  name: string;
+  title: string;
   image: string;
   duration: number;
   audio: string;
-  artists: Artist[];
+  artist: Artist;
   albums: Album[];
 }

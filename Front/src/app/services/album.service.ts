@@ -22,7 +22,7 @@ export class AlbumService {
   }
 
   //PUT-query (update albums)
-  updateAlubm(id:number, album: Album): Observable<Album> {
+  updateAlbum(id:number, album: Album): Observable<Album> {
     return this.http.put<Album>(`${this.apiUrl}albums/${id}/`, album);
   }
 

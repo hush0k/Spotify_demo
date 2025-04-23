@@ -2,10 +2,10 @@
   <div class="track-info">
     <img [src]="currentTrack?.image" alt="Album cover" class="album-cover">
     <div class="track-details">
-      <span class="track-name">{{ currentTrack?.name }}</span>
+      <span class="track-name">{{ currentTrack?.title }}</span>
       <span class="track-artist">
-        <span *ngFor="let artist of currentTrack?.artists; let last = last">
-          {{ artist.name }}{{ !last ? ', ' : '' }}
+        <span class="track-artist">
+          {{ currentTrack?.artist?.name }}
         </span>
       </span>
     </div>
