@@ -1,0 +1,188 @@
+.container {
+  overflow-wrap: break-word;
+  box-sizing: border-box;
+}
+
+.content {
+  padding: 0 24px;
+  margin: 0 auto;
+  width: 1170px;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.content-holder {
+  padding-top: 32px;
+  margin-bottom: 24px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+ }
+
+.card {
+  position: relative;
+  background-color: #1f1f1f;
+  color: white;
+  border-radius: 12px;
+  padding: 20px;
+  width: 100%;
+  max-width: 350px;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 450px;
+}
+
+.label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #f7c9d6;
+  color: black;
+  padding: 6px 10px;
+  font-family: sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 13.75px;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 12px 0;
+  font-family: sans-serif;
+}
+
+.price {
+  font-size: 16px;
+  margin: 12px 0;
+
+  span {
+    color: gray;
+    font-size: 14px;
+    display: inline-block;
+    margin-top: 4px;
+  }
+}
+
+hr {
+  height: 1px;
+  background-color: gray;
+  border: none;
+  margin: 20px 0;
+}
+
+.features {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 16px;
+  flex-grow: 1;
+
+  li {
+    margin-bottom: 6px;
+    position: relative;
+    padding-left: 20px;
+
+    &::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: white;
+      font-size: 20px;
+      line-height: 1;
+    }
+  }
+}
+
+.card-btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 24px;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.2s ease;
+  font-size: 16px;
+  text-align: center;
+  font-weight: 700;
+  font-family: sans-serif;
+  margin-top: auto;
+  color: black;
+
+  &:hover {
+    transform: scale(1.03);
+    opacity: 0.9;
+  }
+}
+
+.note {
+  font-size: 12px;
+  color: gray;
+  margin-top: 16px;
+
+  a {
+    color: gray;
+    text-decoration: underline;
+  }
+}
+
+.card--individual {
+  .label{
+    background-color: rgb(255, 210, 215);
+  }
+  .title {
+    color:rgb(255, 210, 215)
+  }
+  .card-btn {
+    background-color:rgb(255, 210, 215)
+  }
+}
+
+.card--student {
+  .label{
+    background-color: rgb(196, 177, 212)
+  }
+  .title {
+    color:rgb(196, 177, 212)
+  }
+  .card-btn {
+    background-color:rgb(196, 177, 212)
+  }
+}
+
+.card--duo {
+  .label{
+    background-color:rgb(255, 200, 98)
+  }
+  .title {
+    color:rgb(255, 200, 98)
+  }
+  .card-btn {
+    background-color:rgb(255, 200, 98)
+  }
+  .price span {
+    color: gray;
+  }
+}
+
+.card--family {
+  .label{
+    background-color:rgb(165, 187, 209)
+  }
+  grid-column: 2;
+  margin: 0 auto;
+  .title {
+    color:rgb(165, 187, 209)
+  }
+  .card-btn {
+    background-color:rgb(165, 187, 209)
+  }
+}
+.label,
+.title,
+.price,
+.features li,
+.card-btn,
+.note a {
+  font-weight: bold;
+}
