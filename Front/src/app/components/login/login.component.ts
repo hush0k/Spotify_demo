@@ -49,7 +49,7 @@ export class LoginComponent {
         this.router.navigate(['/home']);
       },
       error: (err) => {
-        console.error('Login failed', err);
+        alert('Login failed. Invalid username or password');
         this.errorMessage = 'Invalid username or password';
       }
     });
