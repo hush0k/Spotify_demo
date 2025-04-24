@@ -18,4 +18,14 @@
       [album] = 'album'>
     </app-album>
   </div>
+
+  <div class="trending-songs">
+    <a href="">Biggest albums</a>
+  </div>
+  <div class="sections">
+    <app-album
+      *ngFor="let album of albums.slice(14, 21)"
+      [album] = 'album'>
+    </app-album>
+  </div>
 </div>

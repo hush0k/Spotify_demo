@@ -11,9 +11,14 @@
       <app-footer></app-footer>
     </main>
   </div>
-  <footer>
-    <app-music-player></app-music-player>
-  </footer>
+  <div class="footer" *ngIf="auth.isLoggedIn()">
+    <footer>
+      <app-music-player></app-music-player>
+    </footer>
+  </div>
+  <div class="account" *ngIf="!(auth.isLoggedIn())">
+    <app-preview></app-preview>
+  </div>
 
 </div>
 

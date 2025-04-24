@@ -1,0 +1,172 @@
+.footer-premium {
+  background-color: #000;
+  color: #fff;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  padding: 60px 0 20px;
+
+  .footer-container {
+    max-width: 1170px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .footer-top {
+    display: flex;
+    margin-bottom: 50px;
+  }
+
+  .footer-logo {
+    flex: 0 0 200px;
+    margin-right: 40px;
+
+    .spotify-logo {
+      height: 40px;
+      width: auto;
+      filter: brightness(0) invert(1);
+      transition: opacity 0.2s ease;
+    }
+  }
+
+  .footer-columns {
+    display: flex;
+    flex: 1;
+    gap: 40px;
+  }
+
+  .footer-col {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .footer-heading {
+    color: #919496;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin-bottom: 16px;
+
+      a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 400;
+        transition: color 0.2s ease;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: block;
+        padding-bottom: 6px;
+
+        &:hover {
+          color: #1ed760;
+        }
+      }
+    }
+  }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-top: 20px;
+    color: #919496;
+    font-size: 12px;
+
+    .legal-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+
+      a {
+        color: #919496;
+        text-decoration: none;
+
+        &:hover {
+          color: #1ed760;
+        }
+      }
+    }
+
+    .copyright {
+      text-align: right;
+      line-height: 1.5;
+
+      span {
+        display: block;
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .footer-premium {
+    .footer-columns {
+      gap: 30px;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .footer-premium {
+    .footer-top {
+      flex-direction: column;
+    }
+
+    .footer-logo {
+      margin-bottom: 30px;
+      margin-right: 0;
+    }
+
+    .footer-columns {
+      flex-wrap: wrap;
+    }
+
+    .footer-col {
+      flex: 0 0 calc(50% - 20px);
+      margin-bottom: 30px;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-premium {
+    padding: 40px 0 20px;
+
+    .footer-col {
+      flex: 0 0 100%;
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+      align-items: flex-start;
+
+      .copyright {
+        text-align: left;
+        margin-top: 20px;
+      }
+    }
+
+    .spotify-logo {
+      height: 35px;
+    }
+  }
+}
+h3{
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #919496;
+  font-size: 12px;
+  font-weight: 900;
+  line-height: 1.4;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}

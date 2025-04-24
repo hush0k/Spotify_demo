@@ -28,4 +28,16 @@ export class NavbarComponent {
   singUp() {
     this.router.navigate(['/register']);
   }
+
+  premium() {
+    this.router.navigate(['/premium']);
+  }
+
+  home() {
+    this.router.navigate(['/home']);
+  }
+
+  download() {
+    this.router.navigate(['/download']);
+  }
 }

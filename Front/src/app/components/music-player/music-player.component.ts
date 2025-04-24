@@ -60,7 +60,7 @@ export class MusicPlayerComponent {
     this.shuffleMode = this.playerService.currentShuffleMode;
 
     this.playerService.duration$.subscribe(duration => {
-      this.duration = duration;
+      this.duration = duration || 0.1;
     });
   }
 
@@ -88,15 +88,19 @@ export class MusicPlayerComponent {
     const newTime = parseFloat(input.value);
     const percent = (parseFloat(input.value) / parseFloat(input.max)) * 100;
     this.currentTime = newTime;
+    console.log(this.currentTime)
     this.playerService.seekTo(newTime);
     input.style.setProperty('--progress', `${percent}%`);
   }
   onSeekStart() {
     this.isSeeking = true;
+    console.log(this.currentTime, this.duration);
+    console.log('this is current time:', this.currentTime, 'this is duration:', this.duration);
   }
 
   onSeekEnd() {
     this.isSeeking = false;
+    console.log('this is current time:', this.currentTime, 'this is duration:', this.duration);
   }
 
 
@@ -109,6 +113,7 @@ export class MusicPlayerComponent {
   toggleShuffle(): void {
     this.playerService.toggleShuffleMode();
     this.shuffleMode = this.playerService.currentShuffleMode;
+    console.log('shuffle is:', this.shuffleMode);
   }
 
   formatTime(seconds: number): string {

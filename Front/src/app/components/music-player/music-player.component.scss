@@ -74,6 +74,11 @@ $button-green-color: #1ed760;
         gap: 8px;
 
 
+        .shuffle.activate svg{
+          fill: $button-green-color;
+        }
+
+
         button{
           svg{
             fill: $primary-text;

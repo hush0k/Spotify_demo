@@ -15,7 +15,7 @@
       <p>{{ album.title }}</p>
     </div>
     <div class="artists">
-      <a href="">{{ album.artist.name }}</a>
+      <a href=""><span class="explicit" *ngIf="album.isExplicit">E</span> {{ album.artist.name }}</a>
     </div>
   </div>
 </div>

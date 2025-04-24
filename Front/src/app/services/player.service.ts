@@ -1,7 +1,8 @@
-import {ElementRef, Injectable, OnInit, ViewChild} from '@angular/core';
+import {ElementRef, inject, Injectable, OnInit, ViewChild} from '@angular/core';
 import { Music} from '../models/music';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {MusicService} from './music.service';
+import {Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -18,11 +19,14 @@ export class PlayerService {
   private repeatMode: 'none' | 'all' | 'one' = 'none';
   currentTime$ = this.currentTimeSubject.asObservable();
   duration$ = this.durationSubject.asObservable();
+  private router = inject(Router);
 
 
   constructor(private musicService: MusicService) {
     this.setupAudioListeners();
   }
+
+
 
   loadTrack(trackId: number): void {
     this.musicService.getTrack(trackId).subscribe(track => {
@@ -150,10 +154,12 @@ export class PlayerService {
 
   //Setting of time playing
   seekTo(time: number) {
+    console.log(time);
     if (!isNaN(time) && isFinite(time)) {
-      // Устанавливаем новое время и принудительно обновляем текущее время
       this.audio.currentTime = time;
-      this.currentTimeSubject.next(time); // Немедленное обновление
+      console.log(this.audio.currentTime);
+      this.currentTimeSubject.next(time);
+      console.log(this.audio.currentTime);
     }
   }
 

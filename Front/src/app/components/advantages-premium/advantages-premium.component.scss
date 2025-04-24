@@ -1,0 +1,195 @@
+//colors
+$primary-background-color: #000;
+$secondary-background-color: #1f1f1f;
+$secondary-hovered-background-color: #2a2a2a;
+$third-background-color: #121212;
+$button-green-color: #1ed760;
+$button-green-color-hovered: #3be477;
+$outline-color: rgba(126, 126, 126, 0.83);
+$primary-text: #b3b3b3;
+$white-text-color: #fff;
+
+.container{
+  box-sizing: border-box;
+  display: block;
+  unicode-bidi: isolate;
+  background-color: $third-background-color;
+}
+.content{
+  margin: 0 147px;
+  padding: 75px 0;
+  width: 1170px;
+  unicode-bidi: isolate;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+.content-holder{
+  width: 100%;
+  max-width: 686px;
+  margin: 0 auto;
+  text-align: center;
+  box-sizing: border-box;
+  display: block;
+}
+header{
+  color: white;
+  h2{
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 46px;
+    letter-spacing: -0.015em;
+    padding: 0;
+    margin-block: 0;
+    box-sizing: border-box;
+    text-align: center;
+  }
+  h3{
+    -webkit-font-smoothing: antialiased;
+    font-weight: 400;
+    margin-top: 8px;
+    margin-bottom: 24px;
+    font-size: 24px;
+    line-height: 30px;
+    padding: 0;
+    box-sizing: border-box;
+    text-align: center;
+  }
+}
+
+svg{
+  fill: white;
+  width: 30px;
+  height: 30px;
+}
+.comparison-table {
+  table-layout: fixed;
+  border-spacing: 0;
+  width: 100%;
+  max-width: 446px;
+  margin: 0 auto;
+  overflow-wrap: break-word;
+  --readable-color: #fff;
+  display: table;
+  text-indent: initial;
+  border-color: gray;
+  text-align: center;
+  box-sizing: border-box;
+}
+.table-header{
+  box-sizing: border-box;
+  display: table-header-group;
+  vertical-align: middle;
+  unicode-bidi: isolate;
+  border-color: inherit;
+  color: white;
+}
+.comparison-table td {
+  border-bottom: 1px solid white;
+  padding: 20px;
+  text-align: left;
+  font-size: 16px;
+  color: gray;
+  white-space: normal;
+  cursor: default;
+}
+.comparison-table th.item-2,
+.comparison-table th.item-3 {
+  border-bottom: 1px solid white;
+  padding: 20px;
+  text-align: left;
+  font-size: 16px;
+}
+.tr{
+  color: white;
+}
+.comparison-table th item-2,
+.comparison-table th item-3{
+  position: relative;
+  display: table-cell;
+  vertical-align: inherit;
+  font-weight: bold;
+  unicode-bidi: isolate;
+  border-spacing: 0;
+  overflow-wrap: break-word;
+  border-bottom: 1px solid rgb(217, 218, 220);
+  text-align: left;
+  box-sizing: border-box;
+  color: rgb(255, 255, 255);
+  padding: 32px 8px 32px 20px;
+  height: 100%;
+  width: 29%;
+}
+.comparison-table th.item-1{
+  padding: 16px 10px 10px 10px;
+  border-bottom: 1px solid white;
+  box-sizing: border-box;
+  position: relative;
+  text-align: left;
+  vertical-align: bottom;
+  font-size: var(--subheadline-font-size);
+  line-height: var(--subheadline-line-height);
+  font-weight: 700;
+}
+.th item-2{
+  box-sizing: border-box;
+  align-items: center;
+  align-content: center;
+  display: flex;
+}
+#item-2-holder{
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+}
+.item-3-holder{
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  gap: 2px;
+  box-sizing: border-box;
+  text-align: left;
+  margin: 0;
+  #icon{
+    img{
+      margin:0;
+    }
+  }
+}
+.comparison-table td:nth-child(2),
+.comparison-table td:nth-child(3) {
+  text-align: center;
+}
+.comparison-table td:nth-child(1){
+  padding: 16px 10px;
+}
+.comparison-table span {
+  display: inline-block;
+  background-color: inherit;
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  color: var(--text-base, #ffffff);
+  font-size: 16px;
+  line-height: 24px;
+  text-decoration-color: var(--text-subdued, inherit);
+  box-sizing: border-box;
+  font-weight: 400;
+}
+
+.comparison-table img {
+  height: 20px;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+tr:hover td{
+  background-color: #333;
+}
+
+#listen{
+  padding: 16px 0 16px 10px;
+}
+
+
